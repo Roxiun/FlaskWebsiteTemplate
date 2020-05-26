@@ -9,11 +9,16 @@ from app.forms import ExampleForm
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     form = ExampleForm()
+    post = ''
     if form.validate_on_submit():
         post = form.field.data
         flash('Your post is now live!')
         return redirect(url_for('index'))
+        # Your job is to add to database. This is just a simple kickstarter
     
-    #page = request.args.get('page', 1, type=int)
     return render_template('index.html', title='Home', form=form,
-                           post=post)
+                           posts=post)
+
+@app.route('/page2', methods=['GET', 'POST'])
+def page2():   
+    return 'Comming Soon!'
