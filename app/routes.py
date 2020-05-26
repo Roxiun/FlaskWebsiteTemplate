@@ -12,7 +12,7 @@ def index():
     post = ''
     if form.validate_on_submit():
         post = form.field.data
-        flash('Your post is now live!')
+        flash(f'Accepted! Content: {post}')
         return redirect(url_for('index'))
         # Your job is to add to database. This is just a simple kickstarter
     
